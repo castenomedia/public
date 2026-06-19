@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-Commerce Portfolio | Emre Bilgin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #111827; --bg2: #0f172a; --bg3: #1a2236;
+    --blue: #0084FF; --blue-dim: #60a5fa;
+    --white: #f9fafb; --muted: #6b7280; --border: #1f2d42;
+    --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--white); font-family: var(--font-body); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(17,24,39,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 40px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { font-family: var(--font-display); font-size: 15px; font-weight: 800; color: var(--blue); letter-spacing: 2px; text-decoration: none; }
+  .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--white); }
+  .nav-back { color: var(--blue) !important; }
+
+  .page-header { padding: 120px 40px 60px; max-width: 1100px; margin: 0 auto; border-bottom: 1px solid var(--border); }
+  .label { font-size: 10px; font-weight: 700; letter-spacing: 4px; color: var(--blue); text-transform: uppercase; margin-bottom: 12px; }
+  h1 { font-family: var(--font-display); font-size: clamp(32px, 5vw, 52px); font-weight: 800; line-height: 1.05; color: var(--white); letter-spacing: -0.02em; margin-bottom: 16px; }
+  .page-desc { color: var(--muted); font-size: 15px; max-width: 600px; line-height: 1.8; }
+
+  .sectors { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+  .sector-tag { font-size: 11px; font-weight: 600; color: var(--blue-dim); background: rgba(96,165,250,0.08); border: 1px solid rgba(96,165,250,0.2); padding: 4px 12px; border-radius: 20px; }
+
+  .cases-section { max-width: 1100px; margin: 0 auto; padding: 60px 40px; }
+  .cases-section h2 { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+
+  .case-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+
+  .case-card { background: var(--bg2); border: 0.5px solid var(--border); border-radius: 16px; overflow: hidden; border-left: 4px solid var(--blue); }
+  .case-card-header { padding: 24px 28px 20px; border-bottom: 1px solid var(--border); }
+  .case-tag { font-size: 10px; font-weight: 700; letter-spacing: 3px; color: var(--blue-dim); text-transform: uppercase; margin-bottom: 8px; }
+  .case-name { font-family: var(--font-display); font-size: 22px; font-weight: 800; color: var(--white); margin-bottom: 6px; }
+  .case-subtitle { font-size: 14px; color: var(--muted); }
+
+  .case-metrics { display: flex; border-bottom: 1px solid var(--border); }
+  .metric-box { flex: 1; padding: 20px 24px; border-right: 1px solid var(--border); }
+  .metric-box:last-child { border-right: none; }
+  .metric-num { font-family: var(--font-display); font-size: 26px; font-weight: 800; color: var(--white); line-height: 1; margin-bottom: 6px; }
+  .metric-num.green { color: #34d399; }
+  .metric-lbl { font-size: 12px; color: var(--muted); line-height: 1.4; }
+
+  .case-body { padding: 24px 28px; font-size: 14px; color: var(--muted); line-height: 1.85; }
+  .case-body p + p { margin-top: 14px; }
+
+  .case-footer { padding: 14px 28px; background: rgba(0,0,0,0.2); font-size: 12px; color: #4b5563; border-top: 1px solid var(--border); line-height: 1.6; }
+  .case-footer strong { color: #6b7280; }
+
+  .cta-section { background: var(--bg2); border-top: 1px solid var(--border); padding: 60px 40px; text-align: center; }
+  .cta-inner { max-width: 500px; margin: 0 auto; }
+  .cta-inner h2 { font-family: var(--font-display); font-size: 24px; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+  .cta-inner p { color: var(--muted); font-size: 14px; line-height: 1.7; margin-bottom: 28px; }
+  .btn-primary { background: var(--blue); color: #fff; padding: 13px 32px; border-radius: 7px; font-size: 14px; font-weight: 600; font-family: var(--font-body); text-decoration: none; transition: opacity 0.2s; display: inline-block; }
+  .btn-primary:hover { opacity: 0.88; }
+
+  footer { background: var(--bg2); padding: 24px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; border-top: 1px solid var(--border); }
+  .footer-logo { font-family: var(--font-display); font-size: 13px; font-weight: 800; color: var(--blue); letter-spacing: 2px; }
+  .footer-copy { font-size: 12px; color: var(--muted); }
+
+  .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .page-header { padding: 100px 20px 48px; }
+    .cases-section { padding: 40px 20px; }
+    .case-metrics { flex-wrap: wrap; }
+    .metric-box { min-width: 50%; border-bottom: 1px solid var(--border); }
+    .cta-section { padding: 48px 20px; }
+    footer { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">CASTENO MEDIA</a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="nav-back">← Back</a></li>
+    <li><a href="leadgen.html">Lead Gen Portfolio</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <p class="label">Portfolio</p>
+  <h1>E-Commerce</h1>
+  <p class="page-desc">15+ years of e-commerce work across Europe, the US, and international markets. From building operations from scratch to scaling into new markets.</p>
+  <div class="sectors">
+    <span class="sector-tag">Consumer Electronics</span>
+    <span class="sector-tag">Fashion & Apparel</span>
+    <span class="sector-tag">Food & Grocery</span>
+    <span class="sector-tag">Home Decor</span>
+    <span class="sector-tag">Health & Wellness</span>
+    <span class="sector-tag">Outdoor & Adventure</span>
+    <span class="sector-tag">Pet Products</span>
+    <span class="sector-tag">Automotive Accessories</span>
+    <span class="sector-tag">Textile</span>
+  </div>
+</div>
+
+<div class="cases-section">
+  <h2>Case Studies</h2>
+  <div class="case-grid">
+
+    <div class="case-card fade-in">
+      <div class="case-card-header">
+        <div class="case-tag">Case Study 01 · Consumer Electronics</div>
+        <div class="case-name">Global E-commerce Operation</div>
+        <div class="case-subtitle">Built and managed from scratch — Year 1 to €15M+ annual revenue</div>
+      </div>
+      <div class="case-metrics">
+        <div class="metric-box"><div class="metric-num green">€15M+</div><div class="metric-lbl">Annual revenue</div></div>
+        <div class="metric-box"><div class="metric-num">€300K+</div><div class="metric-lbl">Monthly ad spend peak</div></div>
+        <div class="metric-box"><div class="metric-num">120</div><div class="metric-lbl">Countries</div></div>
+        <div class="metric-box"><div class="metric-num">10+</div><div class="metric-lbl">Team members</div></div>
+      </div>
+      <div class="case-body">
+        <p>Joined as the sole marketer for a consumer electronics brand. Built the full operation over three years — growing from a single channel to a multi-team structure covering paid, SEO, affiliate, content, email, and PR.</p>
+        <p>Negotiated exclusive European rights for Bresser and NatGeo outdoor products, and introduced Airbike as one of the first e-scooter brands across European markets. Later promoted to lead the US expansion — hit breakeven in 3 months against a 12-month internal target.</p>
+        <p>Ad spend grew from €30K/month at the start of Year 1 to €300K+/month at peak, with revenue tracking in parallel.</p>
+      </div>
+      <div class="case-footer"><strong>Channels:</strong> Meta / Google / Affiliate / Email / SEO / Content / PR &nbsp;|&nbsp; <strong>Markets:</strong> Europe, US, MENA, APAC</div>
+    </div>
+
+    <div class="case-card fade-in">
+      <div class="case-card-header">
+        <div class="case-tag">Case Study 02 · Own Venture</div>
+        <div class="case-name">Running My Own E-commerce</div>
+        <div class="case-subtitle">Full operation, my own capital — operator, not just advertiser</div>
+      </div>
+      <div class="case-metrics">
+        <div class="metric-box"><div class="metric-num green">4–5x</div><div class="metric-lbl">ROAS sustained average</div></div>
+        <div class="metric-box"><div class="metric-num">Shopify</div><div class="metric-lbl">+ Amazon FBA</div></div>
+        <div class="metric-box"><div class="metric-num">US</div><div class="metric-lbl">Primary market</div></div>
+      </div>
+      <div class="case-body">
+        <p>Built and operated my own e-commerce business selling textile products to the US market. Handled everything — product sourcing, supplier relationships, Shopify build, logistics, pricing, and paid acquisition.</p>
+        <p>Profitable from early on, with Meta and TikTok as primary acquisition channels driving traffic primarily to Amazon FBA. This wasn't a client account — my own money, my own decisions. Gave me a ground-level understanding of what e-commerce operators actually deal with: margin pressure, inventory risk, conversion friction, and the gap between ad performance and real profitability.</p>
+      </div>
+      <div class="case-footer"><strong>Platform:</strong> Shopify &nbsp;|&nbsp; <strong>Fulfillment:</strong> Amazon FBA &nbsp;|&nbsp; <strong>Channels:</strong> Meta, TikTok, Google &nbsp;|&nbsp; <strong>Market:</strong> US</div>
+    </div>
+
+    <div class="case-card fade-in">
+      <div class="case-card-header">
+        <div class="case-tag">Case Study 03 · Fashion E-commerce</div>
+        <div class="case-name">Luxury & Contemporary Fashion</div>
+        <div class="case-subtitle">Via a London-based fashion branding agency — high AOV paid acquisition</div>
+      </div>
+      <div class="case-metrics">
+        <div class="metric-box"><div class="metric-num green">Up to 5x</div><div class="metric-lbl">ROAS maintained</div></div>
+        <div class="metric-box"><div class="metric-num">€600–900</div><div class="metric-lbl">Average order value</div></div>
+        <div class="metric-box"><div class="metric-num">UK / EU / US</div><div class="metric-lbl">Markets expanded</div></div>
+      </div>
+      <div class="case-body">
+        <p>Managed paid acquisition for multiple luxury and contemporary fashion brands across different growth stages. Work ranged from building Shopify stores and launching acquisition from zero, to scaling into new European and US markets.</p>
+        <p>High AOV products require a different approach — longer consideration cycles, stronger creative alignment, and careful audience segmentation. Maintained ROAS targets across multiple brands simultaneously while managing creative testing and budget allocation per brand.</p>
+      </div>
+      <div class="case-footer"><strong>Channels:</strong> Meta, Google &nbsp;|&nbsp; <strong>Scope:</strong> Shopify build, paid acquisition, market expansion, CRO direction</div>
+    </div>
+
+    <div class="case-card fade-in">
+      <div class="case-card-header">
+        <div class="case-tag">Case Study 04 · Grocery E-commerce</div>
+        <div class="case-name">Local to Digital</div>
+        <div class="case-subtitle">Farm-to-table brand — minimal online presence to structured digital growth system</div>
+      </div>
+      <div class="case-metrics">
+        <div class="metric-box"><div class="metric-num green">10x → 18x</div><div class="metric-lbl">ROAS improvement</div></div>
+        <div class="metric-box"><div class="metric-num">€500 → €5K</div><div class="metric-lbl">Monthly ad spend growth</div></div>
+      </div>
+      <div class="case-body">
+        <p>Worked with a Turkish farm-to-table grocery brand selling locally sourced products online. Rebuilt paid acquisition from scratch and extended scope well beyond ads — analytics, attribution modeling, heatmaps, CRO direction, YoY reporting, organic vs paid segmentation, email marketing structure, social content planning, and brand awareness initiatives.</p>
+        <p>Managed the people running these channels, not just the ad account. Took the brand from scattered digital activity to a structured, measurable growth system.</p>
+      </div>
+      <div class="case-footer"><strong>Channels:</strong> Meta, Google &nbsp;|&nbsp; <strong>Scope:</strong> Paid acquisition, analytics, attribution, email, CRO, social content, reporting</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="cta-section">
+  <div class="cta-inner">
+    <h2>Working on an e-commerce brand?</h2>
+    <p>I work with brands serious about profitable growth — not just more traffic. If this resonates, let's talk.</p>
+    <a href="index.html#contact" class="btn-primary">Get in touch →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">CASTENO MEDIA</div>
+  <div class="footer-copy">© 2025 Emre Bilgin. All rights reserved.</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

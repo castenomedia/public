@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lead Gen Portfolio | Emre Bilgin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #111827; --bg2: #0f172a; --bg3: #1a2236;
+    --blue: #0084FF; --blue-dim: #60a5fa;
+    --white: #f9fafb; --muted: #6b7280; --border: #1f2d42;
+    --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--white); font-family: var(--font-body); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(17,24,39,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 40px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { font-family: var(--font-display); font-size: 15px; font-weight: 800; color: var(--blue); letter-spacing: 2px; text-decoration: none; }
+  .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--white); }
+  .nav-back { color: var(--blue) !important; }
+
+  .page-header { padding: 120px 40px 60px; max-width: 1100px; margin: 0 auto; border-bottom: 1px solid var(--border); }
+  .label { font-size: 10px; font-weight: 700; letter-spacing: 4px; color: var(--blue); text-transform: uppercase; margin-bottom: 12px; }
+  h1 { font-family: var(--font-display); font-size: clamp(32px, 5vw, 52px); font-weight: 800; line-height: 1.05; color: var(--white); letter-spacing: -0.02em; margin-bottom: 16px; }
+  .page-desc { color: var(--muted); font-size: 15px; max-width: 600px; line-height: 1.8; }
+
+  .sectors { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+  .sector-tag { font-size: 11px; font-weight: 600; color: var(--blue-dim); background: rgba(96,165,250,0.08); border: 1px solid rgba(96,165,250,0.2); padding: 4px 12px; border-radius: 20px; }
+
+  .cases-section { max-width: 1100px; margin: 0 auto; padding: 60px 40px; }
+  .cases-section h2 { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+
+  .case-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+
+  .case-card { background: var(--bg2); border: 0.5px solid var(--border); border-radius: 16px; overflow: hidden; border-left: 4px solid var(--blue); }
+  .case-card-header { padding: 24px 28px 20px; border-bottom: 1px solid var(--border); }
+  .case-tag { font-size: 10px; font-weight: 700; letter-spacing: 3px; color: var(--blue-dim); text-transform: uppercase; margin-bottom: 8px; }
+  .case-name { font-family: var(--font-display); font-size: 22px; font-weight: 800; color: var(--white); margin-bottom: 6px; }
+  .case-subtitle { font-size: 14px; color: var(--muted); }
+
+  .case-metrics { display: flex; border-bottom: 1px solid var(--border); }
+  .metric-box { flex: 1; padding: 20px 24px; border-right: 1px solid var(--border); }
+  .metric-box:last-child { border-right: none; }
+  .metric-num { font-family: var(--font-display); font-size: 26px; font-weight: 800; color: var(--white); line-height: 1; margin-bottom: 6px; }
+  .metric-num.green { color: #34d399; }
+  .metric-lbl { font-size: 12px; color: var(--muted); line-height: 1.4; }
+
+  .case-body { padding: 24px 28px; font-size: 14px; color: var(--muted); line-height: 1.85; }
+  .case-body p + p { margin-top: 14px; }
+
+  .case-footer { padding: 14px 28px; background: rgba(0,0,0,0.2); font-size: 12px; color: #4b5563; border-top: 1px solid var(--border); line-height: 1.6; }
+  .case-footer strong { color: #6b7280; }
+
+  .cta-section { background: var(--bg2); border-top: 1px solid var(--border); padding: 60px 40px; text-align: center; }
+  .cta-inner { max-width: 500px; margin: 0 auto; }
+  .cta-inner h2 { font-family: var(--font-display); font-size: 24px; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+  .cta-inner p { color: var(--muted); font-size: 14px; line-height: 1.7; margin-bottom: 28px; }
+  .btn-primary { background: var(--blue); color: #fff; padding: 13px 32px; border-radius: 7px; font-size: 14px; font-weight: 600; font-family: var(--font-body); text-decoration: none; transition: opacity 0.2s; display: inline-block; }
+  .btn-primary:hover { opacity: 0.88; }
+
+  footer { background: var(--bg2); padding: 24px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; border-top: 1px solid var(--border); }
+  .footer-logo { font-family: var(--font-display); font-size: 13px; font-weight: 800; color: var(--blue); letter-spacing: 2px; }
+  .footer-copy { font-size: 12px; color: var(--muted); }
+
+  .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .page-header { padding: 100px 20px 48px; }
+    .cases-section { padding: 40px 20px; }
+    .case-metrics { flex-wrap: wrap; }
+    .metric-box { min-width: 50%; border-bottom: 1px solid var(--border); }
+    .cta-section { padding: 48px 20px; }
+    footer { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">CASTENO MEDIA</a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="nav-back">← Back</a></li>
+    <li><a href="ecom.html">E-Commerce Portfolio</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <p class="label">Portfolio</p>
+  <h1>Lead Generation</h1>
+  <p class="page-desc">Funnels, acquisition systems, and multi-channel performance for SaaS, subscription products, B2B, and service-based businesses across Europe and international markets.</p>
+  <div class="sectors">
+    <span class="sector-tag">SaaS</span>
+    <span class="sector-tag">Subscription Products</span>
+    <span class="sector-tag">B2B</span>
+    <span class="sector-tag">Local Services</span>
+    <span class="sector-tag">Hospitality</span>
+    <span class="sector-tag">Health & Wellness</span>
+    <span class="sector-tag">Finance</span>
+    <span class="sector-tag">Events & Communities</span>
+    <span class="sector-tag">Professional Services</span>
+  </div>
+</div>
+
+<div class="cases-section">
+  <h2>Case Studies</h2>
+  <div class="case-grid">
+
+    <div class="case-card fade-in">
+      <div class="case-card-header">
+        <div class="case-tag">Case Study 01 · Lifestyle / Subscription</div>
+        <div class="case-name">Sports Community Platform</div>
+        <div class="case-subtitle">Lead generation & market expansion — urban football subscription model</div>
+      </div>
+      <div class="case-metrics">
+        <div class="metric-box"><div class="metric-num green">€40 → €15</div><div class="metric-lbl">CPL reduction (qualified lead)</div></div>
+        <div class="metric-box"><div class="metric-num">4 Markets</div><div class="metric-lbl">NL, UK, BE, SE</div></div>
+        <div class="metric-box"><div class="metric-num">2+ Years</div><div class="metric-lbl">Collaboration</div></div>
+      </div>
+      <div class="case-body">
+        <p>Took over Meta campaigns for a fast-growing urban football community on a subscription model. Rebuilt the campaign structure, introduced proper testing logic, and reduced CPL from €40+ to under €15.</p>
+        <p>As the brand expanded from the Netherlands into UK, Belgium, and Sweden, adapted the acquisition strategy market by market — UK showed the strongest product-market fit and became the primary growth engine.</p>
+        <p>Built weekly reporting covering CPL, trial conversion rates, and member CAC across all markets. Implemented attribution tracking via Amplitude to connect ad performance to actual subscription revenue.</p>
+      </div>
+      <div class="case-footer"><strong>Channels:</strong> Meta, Google &nbsp;|&nbsp; <strong>Tools:</strong> Amplitude &nbsp;|&nbsp; <strong>Scope:</strong> Paid acquisition, attribution, weekly reporting</div>
+    </div>
+
+    <div class="case-card fade-in">
+      <div class="case-card-header">
+        <div class="case-tag">Case Study 02 · Subscription & Coaching</div>
+        <div class="case-name">Ideklekkeriet</div>
+        <div class="case-subtitle">Full funnel build — ClickFunnels 2 Comma Club ($1M+ through a single funnel)</div>
+      </div>
+      <div class="case-metrics">
+        <div class="metric-box"><div class="metric-num green">$1M+</div><div class="metric-lbl">Funnel revenue</div></div>
+        <div class="metric-box"><div class="metric-num">€40 → €30</div><div class="metric-lbl">CPA front-end product</div></div>
+        <div class="metric-box"><div class="metric-num">6 Steps</div><div class="metric-lbl">Book → full coaching</div></div>
+      </div>
+      <div class="case-body">
+        <p>Started as paid acquisition manager for a Norwegian personal development business selling books across multiple niches. Quickly expanded scope beyond ads — built the full ClickFunnels funnel architecture, email sequences in ActiveCampaign, Zapier and Integromat automations, lead tagging and segmentation, and internal reporting systems.</p>
+        <p>Each funnel step moved customers from a book purchase toward high-ticket ongoing coaching, with automated follow-ups at every stage. The business reached ClickFunnels 2 Comma Club — over $1M in revenue through a single funnel.</p>
+        <p>Owned the operation alongside the founder, not just the ad account.</p>
+      </div>
+      <div class="case-footer"><strong>Channels:</strong> Meta, Google &nbsp;|&nbsp; <strong>Tools:</strong> ClickFunnels, ActiveCampaign, Zapier, Integromat &nbsp;|&nbsp; <strong>Scope:</strong> Paid acquisition, funnel architecture, automation, segmentation</div>
+    </div>
+
+    <div class="case-card fade-in">
+      <div class="case-card-header">
+        <div class="case-tag">Case Study 03 · B2B SaaS</div>
+        <div class="case-name">Endpoint Security Platform</div>
+        <div class="case-subtitle">From single-channel dependency to a multi-channel acquisition system</div>
+      </div>
+      <div class="case-metrics">
+        <div class="metric-box"><div class="metric-num green">$100+ → $30</div><div class="metric-lbl">CPL reduction</div></div>
+        <div class="metric-box"><div class="metric-num">4 Channels</div><div class="metric-lbl">Meta, Google, LinkedIn, Reddit</div></div>
+        <div class="metric-box"><div class="metric-num">HubSpot</div><div class="metric-lbl">CRM & pipeline tracking</div></div>
+      </div>
+      <div class="case-body">
+        <p>The business was running LinkedIn-only lead generation with CPMs so high that most clicks bounced immediately. CPL was above $100 and volume was inconsistent.</p>
+        <p>Restructured the entire acquisition approach around cold, warm, and hot traffic logic — assigning each channel a defined role in the funnel rather than competing for the same conversion. Meta and Google handled direct acquisition, LinkedIn and Reddit expanded the top of funnel feeding into retargeting sequences.</p>
+        <p>Rebuilt remarketing and Google Ads structure, introduced proper sequencing, and connected performance tracking through HubSpot to monitor lead quality beyond just form fills.</p>
+      </div>
+      <div class="case-footer"><strong>Channels:</strong> Meta, Google, LinkedIn, Reddit &nbsp;|&nbsp; <strong>Tools:</strong> HubSpot &nbsp;|&nbsp; <strong>Market:</strong> Europe &nbsp;|&nbsp; <strong>Scope:</strong> Multi-channel funnel, paid acquisition, remarketing, attribution</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="cta-section">
+  <div class="cta-inner">
+    <h2>Need a structured acquisition system?</h2>
+    <p>I work with SaaS companies, subscription businesses, and service-based brands that need more than just more traffic.</p>
+    <a href="index.html#contact" class="btn-primary">Get in touch →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">CASTENO MEDIA</div>
+  <div class="footer-copy">© 2025 Emre Bilgin. All rights reserved.</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
